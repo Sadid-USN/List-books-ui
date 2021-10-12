@@ -2,19 +2,8 @@ import 'package:book_ui/details_book.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
-  final List<Map> books = [
-    {
-      "name": 'Три основы',
-      "arabic": 'ثلاثة الأصول',
-      "author": 'Мухаммад ибн Абдуль Ваххаб'
-    },
-    {
-      "name": 'Китаб ат-Таухид',
-      "arabic": 'كتاب التوحيد',
-      "author": 'Мухаммад ибн Абдуль Ваххаб'
-    }
-  ];
+ const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,79 +31,73 @@ class HomePage extends StatelessWidget {
               itemCount: 10,
               itemBuilder: (BuildContext context, int index) {
                 // final Books = books;
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
-                  child: Stack(children: [
-                    Container(
-                      margin: const EdgeInsets.only(top: 5, left: 5),
-                      decoration: BoxDecoration(
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black38,
-                                offset: Offset(0.0, 2.0),
-                                blurRadius: 6.0)
-                          ],
-                          border: Border.all(width: 0.9),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(16.0))),
-                    ),
-                    Container(
-                      //  padding: EdgeInsets.only(right: 15),
-                      margin: const EdgeInsets.only(
-                          top: 5, left: 5, right: 3, bottom: 2),
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 0.9),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(16.0))),
-                    ),
-                    Card(
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                        side: BorderSide(color: Colors.black87, width: 1),
-                      ),
-                      color: const Color(0XFF11444D),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 25.0,
-                          ),
-                          Text(
-                            books[1]['arabic'],
-                            style: const TextStyle(
-                                fontFamily: 'Scheherazade',
-                                fontSize: 18,
-                                color: Colors.white),
-                          ),
-                          const SizedBox(
-                            height: 40.0,
-                          ),
-                          Text(
-                            books[1]['name'],
-                            style: const TextStyle(
-                                fontFamily: 'Scheherazade',
-                                fontSize: 18,
-                                color: Colors.white),
-                          ),
-                          const SizedBox(
-                            height: 80.0,
-                          ),
-                          Text(
-                            books[0]['author'],
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                                wordSpacing: 1.5,
-                                fontFamily: 'Roboto',
-                                fontSize: 15,
-                                color: Colors.white),
-                          )
-                        ],
-                      ),
-                    ),
-                  ]),
-                );
+                return cardBook();
               }),
         ),
       ),
     );
   }
+}
+
+Widget cardBook() {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 5),
+    child: Stack(children: [
+      Container(
+        decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black38,
+                  offset: Offset(0.0, 2.0),
+                  blurRadius: 6.0)
+            ],
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              
+              colors: [
+                Colors.blue,
+                Colors.red,
+              ],
+            )),
+        child: Column(
+          children: const [
+            SizedBox(
+              height: 25.0,
+            ),
+            Text(
+              'ثلاثة الأصول',
+              style: TextStyle(
+                  fontFamily: 'Scheherazade',
+                  fontSize: 18,
+                  color: Colors.white),
+            ),
+            SizedBox(
+              height: 40.0,
+            ),
+            Text(
+              'Три основы',
+              style: TextStyle(
+                  fontFamily: 'Scheherazade',
+                  fontSize: 18,
+                  color: Colors.white),
+            ),
+            SizedBox(
+              height: 80.0,
+            ),
+            Text(
+              'Мухаммад ибн Абдульуахаб',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  wordSpacing: 1.5,
+                  fontFamily: 'Roboto',
+                  fontSize: 15,
+                  color: Colors.white),
+            )
+          ],
+        ),
+      ),
+    ]),
+  );
 }
