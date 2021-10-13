@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'colors/colors.dart';
 import 'details_book.dart';
 
 class HomePage extends StatelessWidget {
@@ -76,8 +77,8 @@ class HomePage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
-                        SizedBox(
+                      children:  [
+                        const SizedBox(
                           height: 15.0,
                         ),
                         Text(
@@ -85,30 +86,30 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(
                               fontFamily: 'Scheherazade',
                               fontSize: 18,
-                              color: Color(0xffFFD15C)),
+                              color:  nameBookColor),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40.0,
                         ),
-                        Text(
+                         Text(
                           'ТРИ ОСНОВЫ',
                           style: TextStyle(
                               fontFamily: 'Scheherazade',
                               fontSize: 18,
                               fontWeight: FontWeight.w800,
-                              color: Colors.white),
+                              color: authorNameColor),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 60.0,
                         ),
-                        Text(
+                         Text(
                           'Мухаммад\nибн Абдуль Ваххаб',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               wordSpacing: 1.5,
                               fontFamily: 'Roboto',
                               fontSize: 15,
-                              color: Color(0xffFFD15C)),
+                              color:nameBookColor),
                         )
                       ],
                     ),
