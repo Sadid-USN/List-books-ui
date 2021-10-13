@@ -27,8 +27,8 @@ class BookCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 7, left: 7),
           child: Container(
-              height: 240,
-              width: 180,
+              height: height,
+              width: width,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 0.6),
                 color: Colors.white,
@@ -38,8 +38,8 @@ class BookCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 5, left: 5),
           child: Container(
-              height: 240,
-              width: 180,
+              height: height,
+              width: width,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 0.6),
                 color: Colors.white,
@@ -49,8 +49,8 @@ class BookCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 3, left: 3),
           child: Container(
-              height: 240,
-              width: 180,
+               height: height,
+              width: width,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 0.6),
                 color: Colors.white,
@@ -60,8 +60,8 @@ class BookCard extends StatelessWidget {
         Column(
           children: [
             Container(
-              height: 240,
-              width: 180,
+               height: height,
+              width: width,
               decoration: const BoxDecoration(
                   boxShadow: [
                     BoxShadow(

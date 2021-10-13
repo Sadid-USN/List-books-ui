@@ -13,15 +13,28 @@ class HomePage extends StatelessWidget {
           title: const Text('Books b magrifah'),
         ),
 
-        body: const BookCard(
+        body: ListView(
+          scrollDirection: Axis.horizontal,
+          children: const [
+           BookCard(
         bookNameAr: 'ثلاثة الأصول',
         author: 'Мухаммад ибн Абдуль Ваххаб',
         bookNameRu: "Три основы",
         containerColor: Color(0xff433f5f),
-        height: 100,
-        width: 100,
+        height: 235,
+        width: 175,
 
         ),
+             BookCard(
+        bookNameAr: 'كتاب التوحبد',
+        author: 'Мухаммад ибн Абдуль Ваххаб',
+        bookNameRu: "Книга единобожия",
+        containerColor: Color(0xff783a3a),
+         height: 235,
+        width: 175,
+
+        ),
+        ],)
         // body: InkWell(
         //     onTap: () {
         //       Navigator.push(context, MaterialPageRoute(builder: (context) {
