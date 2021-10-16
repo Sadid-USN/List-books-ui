@@ -36,6 +36,17 @@ class HomePage extends StatelessWidget {
               height: 240,
               width: 175,
             ),
+              BookCard(
+              titleColorRu: titleColorRu,
+              titleColorAr: titleColorAr,
+              authorNameColor: authorNameColor,
+              bookTitleAr: 'كتاب التوحبد',
+              authorName: 'Мухаммад\nибн Абдуль Ваххаб',
+              bookTitleRu: "Китаб ат-Таухид книга единобожия",
+              containerColor: containerColor3,
+              height: 240,
+              width: 175,
+            ),
           ],
         )
         // body: InkWell(

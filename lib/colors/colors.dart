@@ -28,3 +28,15 @@ BoxDecoration containerColor2 = const BoxDecoration(
         Color(0xff714141),
       ],
     ));
+
+    BoxDecoration containerColor3 = const BoxDecoration(
+    borderRadius: BorderRadius.all(Radius.circular(16)),
+    gradient: LinearGradient(
+      begin: Alignment.topRight,
+      end: Alignment.bottomLeft,
+      colors: [
+        Color(0xff433f5f),
+        Color(0xff433f5f),
+        
+      ],
+    ));
