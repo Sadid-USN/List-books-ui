@@ -85,7 +85,7 @@ class BookCard extends StatelessWidget {
                           color: titleColorAr),
                     ),
                     const SizedBox(
-                      height: 40.0,
+                      height: 30.0,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),

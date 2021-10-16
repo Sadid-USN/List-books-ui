@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
               authorName: 'Мухаммад\nибн Абдуль Ваххаб',
               bookTitleRu: "ВОПРОСЫ ПО КНИГЕ ТРИ ОСНОВЫ",
               containerColor: containerColor1,
-              height: 235,
+              height: 240,
               width: 175,
             ),
             BookCard(
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
               authorName: 'Мухаммад\nибн Абдуль Ваххаб',
               bookTitleRu: "Китаб ат-Таухид книга единобожия",
               containerColor: containerColor2,
-              height: 235,
+              height: 240,
               width: 175,
             ),
           ],
