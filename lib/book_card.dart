@@ -1,29 +1,33 @@
 import 'package:flutter/material.dart';
 
-
 class BookCard extends StatelessWidget {
-  const BookCard(
-      {Key? key,
-      this.height,
-      this.width,
-      this.containerColor,
-      this.bookTitleAr,
-      this.titleColorAr,
-      this.bookTitleRu,
-      this.titleColorRu,
-      this.authorName,
-      this.authorNameColor,
-      })
-      : super(key: key);
+  const BookCard({
+    Key? key,
+    this.height,
+    this.width,
+    this.backgroundColor = 0,
+    this.title,
+    this.titleColor = 0,
+    this.titleSize = 18,
+    this.topText,
+    this.topTextColor = 0,
+    this.topTextSize = 18,
+    this.bottomText,
+    this.bottomTextColor = 0,
+    this.bottomTextSize = 15,
+  }) : super(key: key);
   final double? height;
   final double? width;
-  final BoxDecoration? containerColor;
-  final Color? titleColorAr;
-  final Color? titleColorRu;
-  final Color? authorNameColor;
-  final String? bookTitleRu;
-  final String? authorName;
-  final String? bookTitleAr;
+  final int backgroundColor;
+  final int topTextColor;
+  final int titleColor;
+  final int bottomTextColor;
+  final String? title;
+  final String? bottomText;
+  final String? topText;
+  final double titleSize;
+  final double topTextSize;
+  final double bottomTextSize;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +59,7 @@ class BookCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 2, left: 2),
           child: Container(
-               height: height,
+              height: height,
               width: width,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 0.6),
@@ -67,55 +71,58 @@ class BookCard extends StatelessWidget {
           children: [
             Flexible(
               child: Container(
-                 height: height,
+                height: height,
                 width: width,
-                decoration: containerColor,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(16)),
+                    // border: Border.all(color: Colors.black, width: 0.6),
+                    color: Colors.white,
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(backgroundColor),
+                        Color(backgroundColor - 0x33000000),
+                      ],
+                    )),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      height: 15.0,
-                    ),
-                    Text(
-                      bookTitleAr ??'',
-                      style: TextStyle(
-                          fontFamily: 'Scheherazade',
-                          fontSize: 18,
-                          color: titleColorAr),
-                    ),
-                    const SizedBox(
-                      height: 30.0,
-                    ),
+                    Spacer(flex: 1),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        bookTitleRu ?? '',
+                        topText ?? '',
+                        style: TextStyle(
+                            fontSize: topTextSize, color: Color(topTextColor)),
+                      ),
+                    ),
+                    Spacer(flex: 2),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        title ?? '',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          
-                          overflow: TextOverflow.visible,
-                            fontFamily: 'Scheherazade',
-                            fontSize: 18,
+                            overflow: TextOverflow.visible,
+                            fontSize: titleSize,
                             fontWeight: FontWeight.w800,
-                            color: titleColorRu),
+                            color: Color(titleColor)),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10.0,
-                    ),
+                    Spacer(flex: 2),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        authorName ?? '',
+                        bottomText ?? '',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            wordSpacing: 1.5,
-                            fontFamily: 'Roboto',
-                            fontSize: 15,
-                            color: authorNameColor),
+                            fontSize: bottomTextSize,
+                            color: Color(bottomTextColor)),
                       ),
-                    )
+                    ),
+                    Spacer(flex: 1),
                   ],
                 ),
               ),
