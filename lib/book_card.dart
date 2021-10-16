@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
 
+
 class BookCard extends StatelessWidget {
   const BookCard(
       {Key? key,
       this.height,
       this.width,
       this.containerColor,
-      this.bookNameRu,
-      this.bookNameAr,
-      this.textColor,
-      this.author})
+      this.bookTitleAr,
+      this.titleColorAr,
+      this.bookTitleRu,
+      this.titleColorRu,
+      this.authorName,
+      this.authorNameColor,
+      })
       : super(key: key);
   final double? height;
   final double? width;
-  final Color? containerColor;
-  final Color? textColor;
-  final String? bookNameRu;
-  final String? author;
-  final String? bookNameAr;
+  final BoxDecoration? containerColor;
+  final Color? titleColorAr;
+  final Color? titleColorRu;
+  final Color? authorNameColor;
+  final String? bookTitleRu;
+  final String? authorName;
+  final String? bookTitleAr;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +31,7 @@ class BookCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Stack(children: [
         Padding(
-          padding: const EdgeInsets.only(top: 7, left: 7),
+          padding: const EdgeInsets.only(top: 6, left: 6),
           child: Container(
               height: height,
               width: width,
@@ -36,7 +42,7 @@ class BookCard extends StatelessWidget {
               )),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 5, left: 5),
+          padding: const EdgeInsets.only(top: 4, left: 4),
           child: Container(
               height: height,
               width: width,
@@ -47,7 +53,7 @@ class BookCard extends StatelessWidget {
               )),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 3, left: 3),
+          padding: const EdgeInsets.only(top: 2, left: 2),
           child: Container(
                height: height,
               width: width,
@@ -59,63 +65,59 @@ class BookCard extends StatelessWidget {
         ),
         Column(
           children: [
-            Container(
-               height: height,
-              width: width,
-              decoration: const BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black38,
-                        offset: Offset(0.0, 2.0),
-                        blurRadius: 6.0)
+            Flexible(
+              child: Container(
+                 height: height,
+                width: width,
+                decoration: containerColor,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      height: 15.0,
+                    ),
+                    Text(
+                      bookTitleAr ??'',
+                      style: TextStyle(
+                          fontFamily: 'Scheherazade',
+                          fontSize: 18,
+                          color: titleColorAr),
+                    ),
+                    const SizedBox(
+                      height: 40.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        bookTitleRu ?? '',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          
+                          overflow: TextOverflow.visible,
+                            fontFamily: 'Scheherazade',
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800,
+                            color: titleColorRu),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        authorName ?? '',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            wordSpacing: 1.5,
+                            fontFamily: 'Roboto',
+                            fontSize: 15,
+                            color: authorNameColor),
+                      ),
+                    )
                   ],
-                  borderRadius: BorderRadius.all(Radius.circular(16)),
-                  gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                      Color(0xff433f5f),
-                      Color(0xff433f5f),
-                    ],
-                  )),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(
-                    height: 15.0,
-                  ),
-                  Text(
-                    bookNameAr ??'',
-                    style: TextStyle(
-                        fontFamily: 'Scheherazade',
-                        fontSize: 18,
-                        color: textColor),
-                  ),
-                  const SizedBox(
-                    height: 40.0,
-                  ),
-                  Text(
-                    bookNameRu ?? '',
-                    style: TextStyle(
-                        fontFamily: 'Scheherazade',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w800,
-                        color: textColor),
-                  ),
-                  const SizedBox(
-                    height: 60.0,
-                  ),
-                  Text(
-                    author ?? '',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        wordSpacing: 1.5,
-                        fontFamily: 'Roboto',
-                        fontSize: 15,
-                        color: textColor),
-                  )
-                ],
+                ),
               ),
             ),
           ],
